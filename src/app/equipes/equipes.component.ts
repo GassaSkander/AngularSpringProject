@@ -10,20 +10,23 @@ import { EquipesService } from '../core/service/equipes.service';
 export class EquipesComponent implements OnInit {
   public listEquipe:Equipes[];
   public title="List Of Equipes";
+  changeText: boolean;
 
 
-  constructor(private EquipeService:EquipesService) { }
+  constructor(private EquipeService:EquipesService) {
+
+    this.changeText = false;
+   }
 
   ngOnInit(): void {
     this.getEquipes()
+    
   }
   getEquipes():void{
     this.EquipeService.getAllEquipes().subscribe(
       (data:Equipes[])=>{
         console.log(this.listEquipe=data)
       }
-      
-      
       
       )
   }
@@ -32,6 +35,10 @@ export class EquipesComponent implements OnInit {
     this.EquipeService.deleteEquipebyId(p.idEquipe).subscribe(
       ()=>this.listEquipe.splice(i, 1)
     )
+
+  }
+  setOpen(){
+    
 
   }
 }

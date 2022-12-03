@@ -36,6 +36,16 @@
                       <a class="btn btn-sm btn-warning"[routerLink]="['/equipes/updateEqp',e.idEquipe]">
                         update
                       </a>
+                      &nbsp;
+                        <i class="fa fa-info-circle fa-2x" aria-hidden="true" (mouseenter)="changeText=true" (mouseleave)="changeText=false"></i>
+                        <span *ngIf="!changeText"></span>
+                        <span *ngIf="changeText">
+                            tt
+
+
+                        </span>
+            
+                  
                     </td>
                   </tr>
                 </tbody>
