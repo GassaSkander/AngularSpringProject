@@ -11,6 +11,9 @@ const routes: Routes = [
         (m) => m.UniversitesModule
       ),
   },
+  { path: 'equipes', loadChildren: () => import('./equipes/equipes.module').then(m => m.EquipesModule) },
+  { path: 'detailequipes', loadChildren: () => import('./detailequipes/detailequipes.module').then(m => m.DetailequipesModule) },
+  { path: 'reclamation', loadChildren: () => import('./reclamation/reclamation.module').then(m => m.ReclamationModule) },
 ];
 
 @NgModule({
