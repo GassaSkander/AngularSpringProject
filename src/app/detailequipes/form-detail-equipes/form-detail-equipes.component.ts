@@ -15,44 +15,53 @@ export class FormDetailEquipesComponent implements OnInit {
 
   public Rec:detailEquipes;
   public action:String;
+  editdata:any;
 
   constructor(private recService:DetailequipesService,private route:Router,private currentRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+
     this.FormDet = new FormGroup(
       {
         
-        salle: new FormControl('',[Validators.required ]),
+        salle: new FormControl('',[Validators.required,Validators.min(0) ]),
 
         thematique: new FormControl('', [Validators.required])
       }
     )
-    let id =this.currentRoute.snapshot.params['idRec'];
+    let id =this.currentRoute.snapshot.params['idEquipe'];
+      console.log(id);
     if(id!=null){
+     
       this.recService.getdetailEquipebyid(id).subscribe(
-       
-        (data:detailEquipes)=>{this.Rec=data}
+        (data:detailEquipes)=>{this.Rec=data
+
+        }
+      
       );
       //update
       this.action='update';
+      this.LoadEditData(id);
     }else{
       //add
       this.Rec= new detailEquipes()
-
       console.log(this.Rec);
       this.action='ADD';
     }
   }
   addRec(){
     if(this.action=='update'){
-      this.recService.updatedetailEquipe(this.Rec).subscribe(
+
+
+      this.recService.updatedetailEquipe(this.FormDet.value,this.currentRoute.snapshot.params['idEquipe']).subscribe(
         ()=>this.route.navigate(['/detailequipes']),
         ()=>{console.log('error'),
         ()=>{console.log('complete')}}
       )
 
     }else{
-    this.recService.adddetailEquipe(this.FormDet.value).subscribe(
+    this.recService.adddetailEquipe(this.FormDet.value,).subscribe(
       ()=>this.route.navigate(['/detailequipes']),
       ()=>{console.log('error')},
       ()=>{console.log(this.FormDet.value.desc),
@@ -63,5 +72,19 @@ export class FormDetailEquipesComponent implements OnInit {
     )
     }
   }
+  
+  LoadEditData(code: any) {
+    
+    this.recService.getdetailEquipebyid(code).subscribe(result => {
+      this.editdata = result;
+      console.log("------->"+this.editdata);
+      this.FormDet.setValue({salle:this.editdata.salle,thematique:this.editdata.thematique});
+
+    });
+
+    
+
+  }
+
 
 }

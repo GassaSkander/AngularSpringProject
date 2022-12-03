@@ -12,7 +12,7 @@ export class DetailequipesComponent implements OnInit {
   public listEquipe:detailEquipes[];
   public title="List Of Details Equipes";
 
-
+  editdata:any;
   constructor(private EquipeService:DetailequipesService) {
 
    
@@ -37,5 +37,14 @@ export class DetailequipesComponent implements OnInit {
     )
 
   }
+  edit(code: any) {
+    
+    
 
-}
+    }
+    
+
+  }
+
+
+

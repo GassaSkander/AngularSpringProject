@@ -23,7 +23,7 @@ export class DetailequipesService {
     return this.http.get<detailEquipes>(this.uri+'getDetbyid/'+id)
 
   }
-  updatedetailEquipe(e:detailEquipes){
-    return this.http.put(this.uri+'putDetEquipe/'+e.idEquipe,e)
+  updatedetailEquipe(e:detailEquipes,id:number){
+    return this.http.put(this.uri+'putDetEquipe/'+id,e)
   }
 }
