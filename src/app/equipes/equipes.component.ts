@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Equipes } from '../core/model/Equipes';
 import { EquipesService } from '../core/service/equipes.service';
 
@@ -13,7 +14,7 @@ export class EquipesComponent implements OnInit {
   changeText: boolean;
 
 
-  constructor(private EquipeService:EquipesService) {
+  constructor(private EquipeService:EquipesService,private route:Router) {
 
     this.changeText = false;
    }
@@ -22,6 +23,7 @@ export class EquipesComponent implements OnInit {
     this.getEquipes()
     
   }
+
   getEquipes():void{
     this.EquipeService.getAllEquipes().subscribe(
       (data:Equipes[])=>{

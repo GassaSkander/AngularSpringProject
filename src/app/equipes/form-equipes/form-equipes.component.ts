@@ -31,6 +31,7 @@ export class FormEquipesComponent implements OnInit {
     }
 
   }
+
   saveEquipe(){
     if(this.action=='update'){
       this.EquipeService.updateEquipe(this.Equipe).subscribe(
@@ -47,4 +48,5 @@ export class FormEquipesComponent implements OnInit {
     )
     }
   }
+  
 }

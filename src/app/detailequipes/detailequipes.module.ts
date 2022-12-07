@@ -5,17 +5,23 @@ import { DetailequipesRoutingModule } from './detailequipes-routing.module';
 import { DetailequipesComponent } from './detailequipes.component';
 import { FormDetailEquipesComponent } from './form-detail-equipes/form-detail-equipes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 
 @NgModule({
   declarations: [
     DetailequipesComponent,
-    FormDetailEquipesComponent
+    FormDetailEquipesComponent,
+    SearchbarComponent
   ],
   imports: [
     CommonModule,
     DetailequipesRoutingModule,    
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
+
+
   ]
 })
 export class DetailequipesModule { }

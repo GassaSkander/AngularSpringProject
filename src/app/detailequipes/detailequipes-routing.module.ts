@@ -5,7 +5,7 @@ import { FormDetailEquipesComponent } from './form-detail-equipes/form-detail-eq
 
 const routes: Routes = [{ path: '', component: DetailequipesComponent },
 { path: 'addDet', component:FormDetailEquipesComponent },
-{path:'updateDetEqp/:idEquipe', component: FormDetailEquipesComponent},];
+{path:'updateDetEqp/:idEquipe', component: DetailequipesComponent},];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
