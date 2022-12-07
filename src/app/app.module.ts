@@ -8,6 +8,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { UniversitesComponent } from './universites/universites.component';
 import { ComponentsModule } from './components/components.module';
 import {HttpClientModule} from '@angular/common/http';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderModule } from 'ngx-order-pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,11 +19,17 @@ import {HttpClientModule} from '@angular/common/http';
     UniversitesComponent
   ],
   imports: [
+    
     BrowserModule,
+
     AppRoutingModule,
     NgbModule,
     ComponentsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

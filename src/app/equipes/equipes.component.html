@@ -12,16 +12,16 @@
             <table class="table align-items-center table-dark table-flush">
               <thead class="thead-dark">
                 
-                    <tr>
-                      <th scope="col"> id</th>
-                      <th scope="col">name Equipe</th>
+                    <tr >
+                      <th scope="col" (click)="sort('id')"> id &nbsp;<i class="fa fa-sort"></i></th>
+                      <th scope="col" (click)="sort('nomEquipe')"> Nom Equipe &nbsp;<i class="fa fa-sort"></i></th>
                       <th scope="col">niveau Equipe</th>
                       <th scope="col">Action </th>
                     </tr>
             
                 </thead>
                 <tbody>
-                  <tr *ngFor="let e of listEquipe">
+                  <tr *ngFor="let e of listEquipe | orderBy: key: reverse |paginate:{itemsPerPage:5 , currentPage:p};">
                     <td>{{e.idEquipe}}</td>
                     <td>{{e.nomEquipe}}</td>
                     <td>{{e.niveau}}</td>
@@ -49,6 +49,7 @@
                   </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)=" p = $event"></pagination-controls>
             </div>
            
              

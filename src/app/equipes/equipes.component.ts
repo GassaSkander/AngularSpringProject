@@ -43,4 +43,12 @@ export class EquipesComponent implements OnInit {
     
 
   }
+  key :string= 'idEquipe'
+  reverse:boolean=false;
+  sort(key){
+    this.key=key
+
+    this.reverse=!this.reverse;
+  }
+  p:number = 1;
 }
