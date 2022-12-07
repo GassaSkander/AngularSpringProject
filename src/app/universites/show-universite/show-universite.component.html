@@ -33,13 +33,13 @@
             class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
           >
             <div class="d-flex justify-content-between">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4"
-                >Connect</a
+              <a routerLink='/universite' class="btn btn-sm btn-info mr-4"
+                >Back to list</a
               >
               <a
-                href="javascript:void(0)"
+              routerLink='/universite/update/{{universite.idUni}}'
                 class="btn btn-sm btn-default float-right"
-                >Message</a
+                >Update</a
               >
             </div>
           </div>
@@ -54,7 +54,7 @@
               </div>
             </div>
             <div class="text-center">
-              <h3>University's name<span class="font-weight-light">, 27</span></h3>
+              <h3>{{universite.nomUni}}<span class="font-weight-light"> *** </span></h3>
               <div class="h5 font-weight-300">
                 <i class="ni location_pin mr-2"></i>Address
               </div>
@@ -62,7 +62,7 @@
                 <i class="ni business_briefcase-24 mr-2"></i>Description
               </div>
               <div>
-                <i class="ni education_hat mr-2"></i>Description text is here
+                <i class="ni education_hat mr-2"></i>{{universite.description}}
               </div>
               <hr class="my-4" />
               <p>

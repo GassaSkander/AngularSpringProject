@@ -43,7 +43,8 @@
                         id="input-university"
                         class="form-control form-control-alternative"
                         placeholder="University's name"
-                        value=""
+                        [(ngModel)]="universite.nomUni"
+                        name="name"
                       />
                     </div>
                   </div>
@@ -59,14 +60,24 @@
                     rows="4"
                     class="form-control form-control-alternative"
                     placeholder="A few words about the university"
+                    [(ngModel)]="universite.description"
+                    name="description"
                   ></textarea>
                 </div>
               </div>
               <div class="row align-items-center">
                 <div class="col-8"></div>
                 <div class="col-4 text-right">
-                  <a href="#!" class="btn btn-sm btn-success">Update</a>
-                  <a href="#!" class="btn btn-sm btn-secondary">Cancel</a>
+                  <button
+                    type="submit"
+                    class="btn btn-sm btn-success"
+                    (click)="onSubmit()"
+                  >
+                    Update
+                  </button>
+                  <button (click)="cancel()" class="btn btn-sm btn-secondary">
+                    Cancel
+                  </button>
                 </div>
               </div>
             </form>

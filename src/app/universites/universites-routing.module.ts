@@ -9,8 +9,8 @@ import { UpdateUniversiteComponent } from './update-universite/update-universite
 const routes: Routes = [
   { path: '', component: ListUniversiteComponent },
   { path: 'add', component: AddUniversiteComponent },
-  { path: 'show', component: ShowUniversiteComponent },
-  { path: 'update', component: UpdateUniversiteComponent },
+  { path: 'show/:id', component: ShowUniversiteComponent },
+  { path: 'update/:id', component: UpdateUniversiteComponent },
 ];
 
 @NgModule({

@@ -29,8 +29,9 @@
                     <th scope="col">action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+                <tbody *ngFor="let univ of listUniversites">
+                  
+                  <tr >
                     <th scope="row">
                       <div class="media align-items-center ">
                         <a
@@ -43,13 +44,13 @@
                           />
                         </a>
                         <div class="media-body">
-                          <span class="mb-0 text-sm">Argon Design System</span>
+                          <span class="mb-0 text-sm">{{univ.nomUni}}</span>
                         </div>
                       </div>
                     </th>
                     <!-- description -->
                     <td  style="word-wrap: break-word;">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non cumque aperiam veritatis quae. Molestiae veniam ducimus et hic quas nesciunt debitis optio, corporis officia tempore voluptatibus eos, soluta dicta.
+                      {{univ.description}}
                     </td>
                     <!-- action -->
                     <td class="text-right" >
@@ -64,8 +65,8 @@
                           ngbDropdownMenu
                           class="dropdown-menu-right dropdown-menu-arrow"
                         >
-                          <a class="dropdown-item" href="javascript:void(0)"
-                            >Action</a
+                          <a class="dropdown-item" routerLink='/universite/show/{{univ.idUni}}'
+                            >show</a
                           >
                           <a class="dropdown-item" href="javascript:void(0)"
                             >Another action</a
@@ -77,6 +78,7 @@
                       </div>
                     </td>
                   </tr>
+                
                 </tbody>
               </table>
             </div>

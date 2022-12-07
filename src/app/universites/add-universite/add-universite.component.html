@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="addUniversityForm" (ngSubmit)="addUniversity()">
               <h6 class="heading-small text-muted mb-4">
                 University informations
               </h6>
@@ -39,6 +39,7 @@
                         >Name</label
                       >
                       <input
+                        formControlName="nomUni"
                         type="text"
                         id="input-university"
                         class="form-control form-control-alternative"
@@ -56,6 +57,7 @@
                 <div class="form-group">
                   <label class="form-control-label">About Me</label>
                   <textarea
+                    formControlName="description"
                     rows="4"
                     class="form-control form-control-alternative"
                     placeholder="A few words about the university"
@@ -65,8 +67,19 @@
               <div class="row align-items-center">
                 <div class="col-8"></div>
                 <div class="col-4 text-right">
-                  <a href="#!" class="btn btn-sm btn-success">Add</a>
-                  <a href="#!" class="btn btn-sm btn-secondary">Cancel</a>
+                  <button
+                    type="submit"
+                    class="btn btn-sm btn-success"
+                    [disabled]="!addUniversityForm.valid"
+                  >
+                    Add
+                  </button>
+                <button
+                    (click)="resetForm()"
+                    class="btn btn-sm btn-secondary"
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             </form>
