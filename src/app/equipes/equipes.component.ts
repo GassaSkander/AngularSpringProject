@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Equipes } from '../core/model/Equipes';
 import { EquipesService } from '../core/service/equipes.service';
-
+import { detailEquipes } from '../core/model/detailEquipes';
 @Component({
   selector: 'app-equipes',
   templateUrl: './equipes.component.html',
@@ -12,7 +12,7 @@ export class EquipesComponent implements OnInit {
   public listEquipe:Equipes[];
   public title="List Of Equipes";
   changeText: boolean;
-
+  public listEquipeFULL:Equipes[];
 
   constructor(private EquipeService:EquipesService,private route:Router) {
 
@@ -20,6 +20,7 @@ export class EquipesComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.listEquipe=[];
     this.getEquipes()
     
   }
@@ -27,7 +28,17 @@ export class EquipesComponent implements OnInit {
   getEquipes():void{
     this.EquipeService.getAllEquipes().subscribe(
       (data:Equipes[])=>{
+     
         console.log(this.listEquipe=data)
+        
+        for(let i=0;i<this.listEquipe.length;i++){
+          this.EquipeService.findIdDet(this.listEquipe[i].idEquipe).subscribe(
+            (data1:detailEquipes )=>{
+              this.listEquipe[i].detailEquipe1= data1;
+            }
+          )
+        }
+        //console.log(this.listEquipe[0].detailEquipe1.salle)
       }
       
       )

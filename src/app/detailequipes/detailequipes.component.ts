@@ -40,7 +40,7 @@ export class DetailequipesComponent implements AfterViewInit {
   deleteEquipe(p:detailEquipes){
     let i = this.listEquipe.indexOf(p);
     if(confirm("Do you want to remove?")){
-    this.EquipeService.deletedetailEquipebyId (p.idEquipe).subscribe(
+    this.EquipeService.deletedetailEquipebyId (p.idEqp).subscribe(
       ()=>this.listEquipe.splice(i, 1)
     )
     }

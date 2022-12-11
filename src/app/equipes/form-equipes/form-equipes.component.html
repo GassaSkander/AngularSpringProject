@@ -19,6 +19,12 @@
           <option value="SENIOR">SENIOR</option>
       </select>
     </div>
+    <div  class="form-group col-md-6">
+      <label>Available Equipe</label>
+      <select name="niveau"  class="form-control" type="text" [(ngModel)]="selectedid">
+          <option *ngFor="let r of AvailableID" value="{{r.idEqp}}">{{r.idEqp}}</option>
+      </select>
+    </div>
     <br>
     <button class="btn btn-success" (click)="saveEquipe()"
     [disabled]="f.invalid">

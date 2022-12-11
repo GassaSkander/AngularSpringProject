@@ -28,7 +28,7 @@
                 <tbody>
                   <tr >
                 
-                    <td>{{e.idEquipe}}</td>
+                    <td>{{e.idEqp}}</td>
                     <td>{{e.salle}}</td>
                     <td>{{e.thematique}}</td>
                     <td>
@@ -37,7 +37,7 @@
                         delete
                       </button>
                       &nbsp;
-                      <a  class="btn btn-sm btn-warning" [routerLink]="['/detailequipes/updateDetEqp' ,e.idEquipe]" (click)="functionedit(e.idEquipe)">
+                      <a  class="btn btn-sm btn-warning" [routerLink]="['/detailequipes/updateDetEqp' ,e.idEqp]" (click)="functionedit(e.idEqp)">
                         update
                       </a>
                       &nbsp;

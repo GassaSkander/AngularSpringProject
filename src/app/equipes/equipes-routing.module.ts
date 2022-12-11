@@ -5,7 +5,7 @@ import { FormEquipesComponent } from './form-equipes/form-equipes.component';
 
 const routes: Routes = [{ path: '', component: EquipesComponent },
 { path: 'add', component:FormEquipesComponent },
-{path:'updateEqp/:idEquipe', component: FormEquipesComponent},
+{path:'updateEqp/:idEquipe/:idEqp', component: FormEquipesComponent},
 ];
 
 @NgModule({

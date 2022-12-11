@@ -1,5 +1,5 @@
 export class detailEquipes{
-    idEquipe: number;
+    idEqp: number;
     salle: number;
     thematique: String;
   }
