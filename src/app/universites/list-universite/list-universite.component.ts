@@ -24,4 +24,14 @@ export class ListUniversiteComponent implements OnInit {
         console.log(this.listUniversites);
       });
   }
+
+  delete(univ: Universite){
+    console.log('id universite', univ.idUni)
+    this.serviceUniversite.deleteUniversite(univ.idUni).subscribe();
+    console.log('delete success');
+    console.log('index of', this.listUniversites.indexOf(univ))
+    let index = this.listUniversites.indexOf(univ);
+    this.listUniversites.splice(index,1);
+    
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Universite } from 'src/app/core/model/universite';
 import { UniversiteService } from 'src/app/core/service/universite.service';
 
@@ -14,22 +15,25 @@ export class AddUniversiteComponent implements OnInit {
     nomUni: new FormControl('', [Validators.required, Validators.minLength(4)]),
     description: new FormControl('', [Validators.required, Validators.minLength(10),]),
   });
-  constructor(private serviceUniversite: UniversiteService) {}
+  constructor(private serviceUniversite: UniversiteService, private router: Router
+    ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.addUniversityForm.reset();
+  }
 
   addUniversity() {
     console.log(this.addUniversityForm.value);
     this.serviceUniversite.addUniversite(this.addUniversityForm.value).subscribe();
-    this.addUniversityForm.reset();
-    this.serviceUniversite
-      .getAllUniversites()
-      .subscribe((data: Universite[]) => {
-        this.listUniversites = data;
-        console.log(this.listUniversites);
-      });
+    //this.router.navigate(['/universite/']);
+
+      
   }
   resetForm() {
     this.addUniversityForm.reset();
+  }
+
+  get uf(){
+    return this.addUniversityForm.controls;
   }
 }

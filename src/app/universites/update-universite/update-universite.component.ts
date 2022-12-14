@@ -13,6 +13,8 @@ export class UpdateUniversiteComponent implements OnInit {
   idUniversite: any;
   universite: Universite = new Universite();
   submitted = false;
+  validName: boolean ;
+  validDescription: boolean ;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +23,8 @@ export class UpdateUniversiteComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.validName = false;
+    this.validDescription = false;
     this.route.params.subscribe((params) => {
       this.idUniversite = params['id'];
     });
@@ -51,5 +55,22 @@ export class UpdateUniversiteComponent implements OnInit {
     console.log(this.universite);
     this.updateUniversite(this.universite);
     this.router.navigate(['/universite/show/' + this.universite.idUni]);
+  }
+
+  isValidName(): boolean {
+    if (this.universite.nomUni.length > 4) {
+      this.validName = true;
+      return true;
+    } else {
+      this.validName = false;
+      return false;
+    }
+  }
+
+  isValidDescription(): boolean {
+    if (this.universite.description.length > 10) {
+      return true;
+    }
+    return false;
   }
 }

@@ -45,7 +45,9 @@
                         placeholder="University's name"
                         [(ngModel)]="universite.nomUni"
                         name="name"
+                        [ngClass]="{'is-invalid' : isValidName() == false, 'is-valid' : isValidName()==true}"
                       />
+                      
                     </div>
                   </div>
                 </div>
@@ -62,6 +64,8 @@
                     placeholder="A few words about the university"
                     [(ngModel)]="universite.description"
                     name="description"
+                    [ngClass]="{'is-invalid' : isValidDescription() == false, 'is-valid' : isValidDescription()==true}"
+
                   ></textarea>
                 </div>
               </div>
@@ -72,6 +76,7 @@
                     type="submit"
                     class="btn btn-sm btn-success"
                     (click)="onSubmit()"
+                    [disabled]="!validName && !validDescription"
                   >
                     Update
                   </button>

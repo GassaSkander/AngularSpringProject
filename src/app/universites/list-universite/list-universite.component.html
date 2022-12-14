@@ -18,7 +18,12 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3 class="mb-0">List universities</h3>
+              <h3 class="mb-0">Liste universites</h3>
+              <a
+              routerLink='/universite/add'
+                class="btn btn-sm btn-default float-right"
+                >Ajouer une nouvelle université</a
+              >
             </div>
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
@@ -66,13 +71,13 @@
                           class="dropdown-menu-right dropdown-menu-arrow"
                         >
                           <a class="dropdown-item" routerLink='/universite/show/{{univ.idUni}}'
-                            >show</a
+                            >Show details</a
                           >
                           <a class="dropdown-item" href="javascript:void(0)"
-                            >Another action</a
+                            >Update university</a
                           >
-                          <a class="dropdown-item" href="javascript:void(0)"
-                            >Something else here</a
+                          <a class="dropdown-item" (click)="delete(univ)"
+                            >Delete university</a
                           >
                         </div>
                       </div>
