@@ -65,7 +65,7 @@ export class DepartementComponent implements OnInit {
   }
 
   showDelMsg(msg: string, type: number) {
-    let snackBar = document.getElementById('departmentDelNotif');
+    let snackBar = document.getElementById('notif');
     if (type == 1) {
       snackBar.classList.add('del');
     } else if (type == 2) {
