@@ -14,15 +14,16 @@
                     <i class="fas fa-search"></i>
                   </span>
                 </div>
-                <input type="text" class="form-control search_depts" placeholder="Search" [(ngModel)]="searchText"
-                  (keyup)="filterCondition(searchText)" />
+                <input type="text" class="form-control search_depts container"
+                 placeholder="Search" [(ngModel)]="searchText">
+               >
               </div>
             </div>
           </form>
 
           <button class="btn btn-round btn-primary " [routerLink]="['/departement/addep']">ADD</button>
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive p-5">
           <table class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
 
@@ -34,13 +35,13 @@
 
             </thead>
             <tbody>
-              <tr *ngFor="let e of listdepartement  | paginate
+              <tr *ngFor="let e of listdepartement| search: searchText | paginate
                   : {
                       itemsPerPage: tableSize,
                       currentPage: page,
                       totalItems: count
                     };
-              let i = index">
+              let i = index ">
                 <td>{{e.idDepart}}</td>
                 <td>{{e.nomDepart}}</td>
 

@@ -13,7 +13,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    UniversitesComponent
+    UniversitesComponent,
+    
   ],
   imports: [
     BrowserModule,

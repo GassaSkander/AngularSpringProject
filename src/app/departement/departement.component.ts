@@ -14,8 +14,7 @@ export class DepartementComponent implements OnInit {
   tableSize: number = 5;
   tableSizes: any = [3, 6, 9, 12];
 
-  @Input()
-  public searchText = '';
+  searchText = '';
 
   public listdepartement: Departement[];
   public title = 'List Of Departments';

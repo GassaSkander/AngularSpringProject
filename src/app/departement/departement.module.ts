@@ -5,18 +5,21 @@ import { DepartementComponent } from './departement.component';
 import { DepartementformComponent } from './departementform/departementform.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchPipe } from './search.pipe';
+
 
 
 @NgModule({
   declarations: [
     DepartementComponent,
-    DepartementformComponent
-  ],
+    DepartementformComponent,
+    SearchPipe],
   imports: [
     CommonModule,
     DepartementRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
   ]
 })
 export class DepartementModule { }
