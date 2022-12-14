@@ -20,7 +20,13 @@
             
                 </thead>
                 <tbody>
-                  <tr *ngFor="let e of listdepartement">
+                  <tr *ngFor="let e of listdepartement  | paginate
+                  : {
+                      itemsPerPage: tableSize,
+                      currentPage: page,
+                      totalItems: count
+                    };
+              let i = index">
                     <td>{{e.idDepart}}</td>
                     <td>{{e.nomDepart}}</td>
                     
@@ -34,16 +40,21 @@
                       <a class="btn btn-sm btn-warning"[routerLink]="['/departement/updatedep',e.idDepart]">
                         update
                       </a>
-                      
-
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-           
-             
-            </div>
+              <div class="d-flex justify-content-center">
+                <pagination-controls
+                  previousLabel="Prev"
+                  nextLabel="Next"
+                  (pageChange)="onTableDataChange($event)"
+                >
+                </pagination-controls>
+              </div>
+            
+            </div> 
+            </div> 
           </div>
         </div>
       </div>
