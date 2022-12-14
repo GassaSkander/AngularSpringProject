@@ -11,12 +11,12 @@ import { detailEquipes } from '../core/model/detailEquipes';
 export class EquipesComponent implements OnInit {
   public listEquipe:Equipes[];
   public title="List Of Equipes";
-  changeText: boolean;
+  changeText: boolean[];
   public listEquipeFULL:Equipes[];
 
   constructor(private EquipeService:EquipesService,private route:Router) {
 
-    this.changeText = false;
+    this.changeText = [];
    }
 
   ngOnInit(): void {
@@ -35,6 +35,7 @@ export class EquipesComponent implements OnInit {
           this.EquipeService.findIdDet(this.listEquipe[i].idEquipe).subscribe(
             (data1:detailEquipes )=>{
               this.listEquipe[i].detailEquipe1= data1;
+              this.changeText[data1.idEqp] = false;
             }
           )
         }
