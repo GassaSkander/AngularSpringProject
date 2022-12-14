@@ -1,0 +1,58 @@
+
+ <!-- Page content -->
+ <div class="container-fluid mt--7">
+    <div class="row mt-5">
+      <div class="col">
+        <div class="card bg-default shadow">
+          <div class="d-flex justify-content-lg-around card-header bg-transparent border-0">
+            <h3 class="text-white mb-0">{{title}}</h3>
+              <button class="btn btn-round btn-primary "[routerLink]="['/departement/addep']">ADD</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-dark table-flush">
+              <thead class="thead-dark">
+                
+                    <tr >
+                      <th scope="col" > id &nbsp;<i class="fa fa-sort"></i></th>
+                      <th scope="col">nom Departement</th>
+                      <th scope="col">Action </th>
+                    </tr>
+            
+                </thead>
+                <tbody>
+                  <tr *ngFor="let e of listdepartement">
+                    <td>{{e.idDepart}}</td>
+                    <td>{{e.nomDepart}}</td>
+                    
+                    <td>
+                    
+                        &nbsp;
+                      <button class="btn btn-sm btn-danger" (click)="deletedepartement(e)">
+                        delete
+                      </button>
+                      &nbsp;
+                      <a class="btn btn-sm btn-warning"[routerLink]="['/departement/updatedep',e.idDepart]">
+                        update
+                      </a>
+                      
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+           
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+<router-outlet></router-outlet>
+    
+  
+  
+
+  
+  <!-- Button trigger modal -->
+  
