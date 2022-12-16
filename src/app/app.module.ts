@@ -23,8 +23,9 @@ import { OrderModule } from 'ngx-order-pipe';
 import { EquipesModule } from './equipes/equipes.module';
 import { ProfileComponent } from './layouts/profile/profile.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { ListEquipeEtudiantComponent } from './equipes/list-equipe-etudiant/list-equipe-etudiant.component';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [AppComponent, UniversitesComponent,
@@ -52,10 +53,11 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     ContratsModule,
 
     HttpClientModule,
-
+    MatSlideToggleModule,
 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
 
   ],
   providers: [authInterceptorProviders],

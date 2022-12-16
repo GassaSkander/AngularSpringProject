@@ -12,9 +12,11 @@ import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { AddContratComponent } from './add-contrat/add-contrat.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon'
 
-
-
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     ContratsComponent,
@@ -22,22 +24,26 @@ import { ToastrModule } from 'ngx-toastr';
     ListContratComponent,
 
     ListEtudiantContratComponent,
-    FormContratComponent
+    FormContratComponent,
+    AddContratComponent
   ],
   imports: [
     CommonModule,
     ContratsRoutingModule,
-
+    MatSlideToggleModule,
     ComponentsModule,
     FormsModule,
     NgbModule,
     FormsModule,
+    MatIconModule,
+    MatButtonModule,
     ToastrModule.forRoot(),
   ],
   exports: [
     ContratsComponent,
     ListEtudiantContratComponent,
-    ListContratComponent
+    ListContratComponent,
+    AddContratComponent
   ]
 })
 export class ContratsModule { }

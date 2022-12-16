@@ -111,14 +111,14 @@
             <div class="card-header border-0">
               <h3 class="mb-0">Liste des Contrats</h3>
             </div>
-            <button
-            class="btn btn-sm btn-primary"
-            style="width: 14%; margin-left: 85%; margin-top: -3%"
-            (click)="open(content)"
 
-          >
-            + Ajouter un contrat
-          </button>
+            <div class="example-button-container">
+              <button mat-fab color="primary" aria-label="Example icon button with a menu icon" (click)="open(content) "  style=" margin-left: 85%; margin-top: -8%; background: #536DFE">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+
+
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
@@ -147,8 +147,10 @@
                       <span class="mb-0 text-sm bold">{{list.dateFinContrat}}</span>
                     </td>
                     <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> {{list.archive}}
+                      <span class="badge badge-dot mr-4" [ngStyle]="{color : list.archive=== false ?'Red':'Green'}">
+
+
+                        <i  class="bg"></i> {{list.archive}}
                       </span>
                     </td>
                     <td>
@@ -239,6 +241,7 @@
       </div>
       <ng-template #content let-modal>
         <div class="modal-header" style="background: rgb(255, 255, 255)">
+
           <h4
             class="modal-title"
             id="modal-basic-title"
@@ -386,7 +389,7 @@
     <app-footer></app-footer>
     </div>
 
-      <!-- Button trigger modal -->
+
 
       <!-- Dark table -->
       <!-- <div class="row mt-5">
